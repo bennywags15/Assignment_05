@@ -278,6 +278,46 @@ plot(rf_shap_obs1)
 plot(rf_shap_obs2)
 plot(rf_shap_obs3)
 ```
+Shap Graph: 
+For each three observations, if you take a look at interest rate, the number presented in the Shap graph is very similar to the number in the Break Down plot. This is correct because the shap graph shows the average contribution of each variable’s value to the predicted response for this observation. This is the same interpretation as the break down plot, so its right that int_rate contributes the same.
+
+```{r, error=FALSE}
+set.seed(2)
+
+# NEED these two lines of code always!
+# They make sure our explainer is defined correctly to use in the next step
+model_type.dalex_explainer <- DALEXtra::model_type.dalex_explainer
+predict_model.dalex_explainer <- DALEXtra::predict_model.dalex_explainer
+
+lime_rf_obs1 <- predict_surrogate(explainer = rf_explain,
+                             new_observation = obs_1 %>%
+                               select(-Class), 
+                             n_features = 5,
+                             n_permutations = 1000,
+                             type = "lime")
+lime_rf_obs2 <- predict_surrogate(explainer = rf_explain,
+                             new_observation = obs_2 %>%
+                               select(-Class), 
+                             n_features = 5,
+                             n_permutations = 1000,
+                             type = "lime")
+lime_rf_obs3 <- predict_surrogate(explainer = rf_explain,
+                             new_observation = obs_3 %>%
+                               select(-Class), 
+                             n_features = 5,
+                             n_permutations = 1000,
+                             type = "lime")
+
+plot(lime_rf_obs1) +
+  labs(x = "Variable")
+plot(lime_rf_obs2) +
+  labs(x = "Variable")
+plot(lime_rf_obs3) +
+  labs(x = "Variable")
+```
+Lime Graphs:
+
+
 
 
 6. Describe how you would use the interpretable machine learning tools we've learned (both local and global) in future machine learning projects? How does each of them help you?
