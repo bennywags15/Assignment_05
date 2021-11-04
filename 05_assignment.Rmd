@@ -308,6 +308,16 @@ lime_rf_obs3 <- predict_surrogate(explainer = rf_explain,
                              n_permutations = 1000,
                              type = "lime")
 
+lime_rf_obs1 %>% 
+  select(model_r2, model_prediction, prediction) %>% 
+  distinct()
+lime_rf_obs2 %>% 
+  select(model_r2, model_prediction, prediction) %>% 
+  distinct()
+lime_rf_obs3 %>% 
+  select(model_r2, model_prediction, prediction) %>% 
+  distinct()
+
 plot(lime_rf_obs1) +
   labs(x = "Variable")
 plot(lime_rf_obs2) +
@@ -316,11 +326,11 @@ plot(lime_rf_obs3) +
   labs(x = "Variable")
 ```
 Lime Graphs:
-
-
+As the observations get larger, the difference between the prediction of the local model and the prediction of the original model gets smaller. For observation 1, the difference is 0.114. Then in observation 2, the difference is 0.1017. And finally for observations 3, the difference is 0.099. This makes sense because you are fitting the model to more and more data which will result in a more accurate prediction.
 
 
 6. Describe how you would use the interpretable machine learning tools we've learned (both local and global) in future machine learning projects? How does each of them help you?
+Using interpretable machine learning helps us distinguish which variables are most important to include in a model which we are interested in creating. By understanding these differences in variable importance, we will be able to make models that effectively create more accurate predictions of our outcome of interest. Machine learning can make metrics that are hard to wrap your brain around by simply lookin gat numbers. so by creating mutiple graphs which visualize the aspects of each model, the user can get a better sense of what the model should be made up of. 
 
 7. Save this final model using the `write_rds()` function - see the [Use the model](https://advanced-ds-in-r.netlify.app/posts/2021-03-16-ml-review/#use-the-model) section of the `tidymodels` intro for a similar example, but we're using `write_rds()` instead of `saveRDS()`. We are going to use the model in the next part. You'll want to save it in the folder where you create your shiny app. Run the code, and then add `eval=FALSE` to the code chunk options (next to the r inside the curly brackets) so it doesn't rerun this each time you knit.
 
@@ -346,6 +356,8 @@ Specifically, you will do the following:
 * Use the `bslib` to theme your shiny app!  
 * Publish your app to [shinyapps.io](https://www.shinyapps.io/). There are instructions for doing that on my tutorial page from Intro Data Science: https://animation-and-interactivity-in-r.netlify.app/#publishing-your-app. Make sure to load ALL the libraries that you use at the top of your file. This includes the ranger library, which is used "behind the scenes" when your model is fit. If you try to publish and are unsuccessful, forgetting a library you need is the most common reason I have seen.     
 * Write a paragraph or two describing your app on your website! Link to the app and your GitHub repository in your post. Include a link to your post here. 
+
+
 
 
 ## Data Ethics: Data visualization principles
