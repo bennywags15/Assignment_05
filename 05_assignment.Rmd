@@ -325,6 +325,8 @@ plot(lime_rf_obs2) +
 plot(lime_rf_obs3) +
   labs(x = "Variable")
 ```
+
+
 Lime Graphs:
 As the observations get larger, the difference between the prediction of the local model and the prediction of the original model gets smaller. For observation 1, the difference is 0.114. Then in observation 2, the difference is 0.1017. And finally for observations 3, the difference is 0.099. This makes sense because you are fitting the model to more and more data which will result in a more accurate prediction.
 
@@ -357,6 +359,10 @@ Specifically, you will do the following:
 * Publish your app to [shinyapps.io](https://www.shinyapps.io/). There are instructions for doing that on my tutorial page from Intro Data Science: https://animation-and-interactivity-in-r.netlify.app/#publishing-your-app. Make sure to load ALL the libraries that you use at the top of your file. This includes the ranger library, which is used "behind the scenes" when your model is fit. If you try to publish and are unsuccessful, forgetting a library you need is the most common reason I have seen.     
 * Write a paragraph or two describing your app on your website! Link to the app and your GitHub repository in your post. Include a link to your post here. 
 
+Github: https://github.com/bennywags15/lending_small
+Link to App: https://benwagnerds.shinyapps.io/lending_small/?_ga=2.137845299.2090513278.1636045043-1349152735.1634230924
+Link to Website Post: https://benwagner.netlify.app/posts/2021-11-04-ceterisparibus/
+
 
 
 
@@ -367,6 +373,8 @@ I'm hoping that the topic for this week is a review for all of you, but it's goo
 **Task:**
 
 Read both short articles in Week6. Data visualization section of [Calling Bulllshit](https://www.callingbullshit.org/syllabus.html#Visual). Were there any principles mentioned that you hadn't heard of before? What graph stood out for you as "the worst"? Did any of the graphs fool you? Or were able to overcome the bad practices (don't worry if they fool you - plently of them have fooled me, too.)? How does practicing good data visualization principles fit in with data ethics?
+
+I really had no idea whether showing multiple axes was acceptable or not on a visualization, so that was one priciple I had never heard before and I am glad I have got it cleared up. I have definitely thought about showing multiple trends within a graph that did not have the same axis. The graphs showing which line graphs should not include 0 looked the worst to me because the line of the graph was basically flat. It showed no real overall trend simply because it included 0 on the axis. The Donut bar charts were harder to wrap my mind around (no pun intended) because comparing the size of the bars was made a little too hard by incorporating the change in shape. Practicing good data visualization principles is so important because visualizations are a persuasive medium. Thus, if these visualizations show data in a way thats not correct, it could affect the way people understand the data and their overall ideas on the concept (ex. Politics)
 
 
 ## Make this document look nicer!
